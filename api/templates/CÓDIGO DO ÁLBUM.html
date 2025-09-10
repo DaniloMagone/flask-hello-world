@@ -350,7 +350,7 @@ function synthProfile(p){
 function makeCard(p, team) {
   // Criação do nome do arquivo da imagem a partir do campo name
   const imgFileName = p.name + '.png';
-  const imgSrc = `./FOTOS FINAIS DO ÁLBUM/${imgFileName}`; // A substituição acontece no onerror
+  const imgSrc = `./static/${imgFileName}`; // A substituição acontece no onerror
   const stats = p.stats || {};
 
   const front = el('div', { class: frontClass(team) },
@@ -420,7 +420,7 @@ function makeCardAtletica(team) {
   const DEFAULT_STAT = '—';
   
   const imgFileName = `${team.name}.png`;
-  const imgSrc = `./FOTOS FINAIS DO ÁLBUM/${imgFileName}`;
+  const imgSrc = `./static/${imgFileName}`;
   const stats = team.stats || {};
 
   // Usar a mesma classe de cor que os cards dos jogadores
@@ -482,7 +482,7 @@ function openDetailPlayer(p, team){
   const profile = synthProfile(p);
 
   const imgFileName = p.name + '.png'; // Remove sublinhados e substitui
-  const imgSrc = `./FOTOS FINAIS DO ÁLBUM/${imgFileName}` || AVATAR_PH; // Altere aqui para a pasta local
+  const imgSrc = `./static/${imgFileName}` || AVATAR_PH; // Altere aqui para a pasta local
   const atl = team==='engenharia'?'Engenharia UFU':team==='fisioterapia'?'Fisioterapia UFU':'Educação Física UFU';
   const attrs = p.stats || {};
 
@@ -585,7 +585,7 @@ function openDetailAtletica(p, team) {
   album.style.display = 'none';
 
   const imgFileName = `${p.name}.png`;
-  const imgSrc = `./FOTOS FINAIS DO ÁLBUM/${imgFileName}`;
+  const imgSrc = `./static/${imgFileName}`;
 
   d.appendChild(
     el('div', {class:'detail-head'},
