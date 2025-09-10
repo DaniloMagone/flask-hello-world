@@ -483,7 +483,7 @@ function openDetailPlayer(p, team){
 
   const imgFileName = p.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_")+ ".png";
   const imgSrc = `./static/${imgFileName}` || AVATAR_PH; // Altere aqui para a pasta local
-  const atl = team==='engenharia'?'Engenharia UFU':team==='fisioterapia'?'Fisioterapia UFU':'Educação Física UFU';
+  const atl = p.team==='engenharia'?'Engenharia UFU':p.team==='fisioterapia'?'Fisioterapia UFU':'Educação Física UFU';
   const attrs = p.stats || {};
 
   d.appendChild(
