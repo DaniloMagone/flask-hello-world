@@ -349,7 +349,7 @@ function synthProfile(p){
 /* === CARDS (inalterados, só usando driveUrl + fallback) === */
 function makeCard(p, team) {
   // Criação do nome do arquivo da imagem a partir do campo name
-  const imgFileName =p.name.replace(/\s+/g, "_") + ".png";
+  const imgFileName = p.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_")+ ".png";
   const imgSrc = `./static/${imgFileName}`; // A substituição acontece no onerror
   const stats = p.stats || {};
 
@@ -481,7 +481,7 @@ function openDetailPlayer(p, team){
   const season = synthSeason(p);
   const profile = synthProfile(p);
 
-  const imgFileName = p.name.replace(/\s+/g, "_") + ".png";
+  const imgFileName = p.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_")+ ".png";
   const imgSrc = `./static/${imgFileName}` || AVATAR_PH; // Altere aqui para a pasta local
   const atl = team==='engenharia'?'Engenharia UFU':team==='fisioterapia'?'Fisioterapia UFU':'Educação Física UFU';
   const attrs = p.stats || {};
